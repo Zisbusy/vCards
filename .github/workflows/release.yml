@@ -13,6 +13,10 @@ on:
     - "tsconfig.json"
   workflow_dispatch:
 
+permissions:
+  contents: write      # ← 关键：允许创建 Release / tag / 删除 Release
+  packages: write      # 如果你还想用 GITHUB_TOKEN 推 GHCR 镜像
+
 jobs:
   release-build:
     runs-on: ubuntu-latest
